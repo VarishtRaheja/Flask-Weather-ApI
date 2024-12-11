@@ -38,7 +38,7 @@ def single_station(station):
     weather_df = pd.read_csv(file,sep=",",skiprows=20,skipinitialspace=True)
     # Drop all row with -9999
     weather_df = weather_df.drop(weather_df[weather_df['TG']==-9999].index)
-    
+
     # Grabbing the station_id and parsing dates.
     station_id = weather_df['STAID'].unique()
     temperature = round(weather_df[weather_df['STAID']==int(station)]['TG'].squeeze()*0.1,2)
